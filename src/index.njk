@@ -1,0 +1,213 @@
+---
+layout: base.njk
+title: Arquitecto en Concordia, Entre Ríos
+description: Estudio de Arquitectura Noir — proyecto, dirección de obra e interiorismo para viviendas, locales comerciales y naves industriales en Concordia y toda la zona de Entre Ríos.
+---
+<div class="progress-bar" data-progress></div>
+
+<header class="site-header" data-header>
+  <a href="#top" class="site-header__brand">
+    <span class="site-header__mark">
+      <img class="logo-dark" src="/img/logo-noir-mark-navy.png" alt="Noir">
+      <img class="logo-light" src="/img/logo-noir-mark-black.png" alt="">
+    </span>
+    <span>Estudio de Arquitectura Noir</span>
+  </a>
+  <nav class="site-nav">
+    <a href="#estudio">Estudio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section id="top" class="hero">
+  <div class="hero__media" data-hero-media>
+    {% if home.heroImagen %}<img src="{{ home.heroImagen }}" alt="Obra de Estudio de Arquitectura Noir">{% endif %}
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__content">
+    <p class="hero__kicker">Concordia — Entre Ríos</p>
+    <h1>
+      <span>Arquitecto en</span>
+      <span>Concordia,</span>
+      <span class="accent">Entre Ríos</span>
+    </h1>
+    <div class="hero__foot">
+      <p class="hero__lede">Estudio de Arquitectura Noir — proyecto, dirección de obra e interiorismo para viviendas, locales comerciales y naves industriales.</p>
+      <div class="hero__cue">
+        <div class="hero__cue-line"></div>
+        <span>Bajá</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="estudio" class="estudio">
+  <div class="wrap estudio__grid">
+    <div data-reveal>
+      <div class="estudio__rule"></div>
+      <p class="section-label">01 — El estudio</p>
+      <h2>Cada obra empieza con una conversación, no con un plano</h2>
+    </div>
+    <div>
+      <p data-reveal>En Estudio de Arquitectura Noir trabajamos de cerca con cada cliente para traducir una necesidad concreta —una casa, una reforma, un local, una nave— en un espacio funcional, cuidado en el detalle y con identidad propia.</p>
+      <p data-reveal data-delay="0.1">A cargo del Arq. Gonzalo Noir (Mat. 12.656), acompañamos el proyecto de punta a punta: desde el primer boceto hasta la entrega de la obra terminada. Gonzalo cuenta con trayectoria profesional en proyecto y dirección de obra, y además dicta clases de Administración y Conducción de Obras — una mirada que se traslada directamente a cómo se gestionan los proyectos del estudio: con presupuestos claros, plazos reales y seguimiento constante de la obra.</p>
+      <dl class="estudio__stats" data-reveal data-delay="0.15">
+        <div><dt>Matrícula</dt><dd>12.656</dd></div>
+        <div><dt>Docencia</dt><dd>Administración y Conducción de Obras</dd></div>
+        <div><dt>Zona</dt><dd>Concordia y alrededores</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="wrap estudio-fotos">
+  <div class="estudio-fotos__a" data-reveal>
+    {% if home.estudioImagen1 %}
+      <img src="{{ home.estudioImagen1 }}" alt="Obra de Estudio de Arquitectura Noir">
+    {% else %}
+      <div class="placeholder-foto">Foto de obra — horizontal<br>(cargar desde /admin)</div>
+    {% endif %}
+  </div>
+  <div class="estudio-fotos__b" data-reveal data-delay="0.12">
+    {% if home.estudioImagen2 %}
+      <img src="{{ home.estudioImagen2 }}" alt="Detalle de obra">
+    {% else %}
+      <div class="placeholder-foto">Detalle constructivo — vertical<br>(cargar desde /admin)</div>
+    {% endif %}
+  </div>
+</div>
+
+<section id="servicios" class="servicios">
+  <div class="wrap">
+    <div class="servicios__head" data-reveal>
+      <h2>Servicios</h2>
+      <p class="section-label">02 — Qué hacemos</p>
+    </div>
+
+    <div class="servicio" data-reveal>
+      <div class="servicio__num">01</div>
+      <h3>Diseño y proyecto arquitectónico</h3>
+      <p>Desarrollo del proyecto desde el anteproyecto hasta la documentación técnica completa, para viviendas, locales comerciales y naves industriales.</p>
+    </div>
+    <div class="servicio" data-reveal data-delay="0.06">
+      <div class="servicio__num">02</div>
+      <h3>Dirección de obra</h3>
+      <p>Seguimiento y control de la obra en construcción, coordinación de contratistas y verificación de que lo construido respete el proyecto y los plazos acordados.</p>
+    </div>
+    <div class="servicio" data-reveal data-delay="0.12">
+      <div class="servicio__num">03</div>
+      <h3>Presupuestos y administración de obra</h3>
+      <p>Presupuestos de mano de obra y materiales, y administración económica de la obra durante todo el proceso constructivo.</p>
+    </div>
+    <div class="servicio" data-reveal data-delay="0.18">
+      <div class="servicio__num">04</div>
+      <h3>Interiorismo</h3>
+      <p>Diseño de interiores para viviendas y locales, pensado en conjunto con el proyecto arquitectónico o de forma independiente para reformas puntuales.</p>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos" class="proyectos">
+  <div class="wrap">
+    <div class="proyectos__head" data-reveal>
+      <h2>Proyectos</h2>
+      <p class="section-label">03 — Obra construida</p>
+    </div>
+
+    {% for proyecto in collections.proyectos %}
+      {% if loop.first %}
+        <article class="proyecto-feature" data-reveal>
+          <div class="proyecto-feature__media">
+            <div class="proyecto-feature__zoom">
+              {% if proyecto.data.portada %}
+                <img src="{{ proyecto.data.portada }}" alt="{{ proyecto.data.title }}">
+              {% else %}
+                <div class="placeholder-foto">{{ proyecto.data.title }} — foto principal<br>(cargar desde /admin)</div>
+              {% endif %}
+            </div>
+          </div>
+          <div>
+            <p class="proyecto-feature__meta">{{ proyecto.data.anio }}{% if proyecto.data.anio and proyecto.data.ubicacion %} — {% endif %}{{ proyecto.data.ubicacion }}</p>
+            <h3>{{ proyecto.data.title }}</h3>
+            <p>{{ proyecto.templateContent | safe }}</p>
+            <dl class="proyecto-feature__datos">
+              <div><dt>Tipo</dt><dd>{{ proyecto.data.tipo or "—" }}</dd></div>
+              <div><dt>Superficie</dt><dd>{{ proyecto.data.metros or "—" }}{% if proyecto.data.metros %} m²{% endif %}</dd></div>
+            </dl>
+            <p style="margin-top:24px"><a class="proyecto-feature__link" href="{{ proyecto.url }}">Ver más fotos →</a></p>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+
+    <div class="proyectos-duo" data-reveal>
+      {% for foto in collections.proyectos[0].data.galeria %}
+        {% if loop.index <= 2 %}
+          <div><img src="{{ foto }}" alt="{{ collections.proyectos[0].data.title }} — detalle"></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% for proyecto in collections.proyectos %}
+      {% if not loop.first %}
+        <article class="proyecto-item {% if loop.index0 is even %}reverse{% endif %}" data-reveal>
+          <div class="proyecto-item__media">
+            <div class="proyecto-item__zoom">
+              {% if proyecto.data.portada %}
+                <img src="{{ proyecto.data.portada }}" alt="{{ proyecto.data.title }}">
+              {% else %}
+                <div class="placeholder-foto">{{ proyecto.data.title }} — foto principal<br>(cargar desde /admin)</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="proyecto-item__text">
+            <p class="proyecto-item__meta">{{ proyecto.data.anio or "[Año]" }} — {{ proyecto.data.ubicacion or "[Ubicación]" }}</p>
+            <h3>{{ proyecto.data.title }}</h3>
+            <p>{{ proyecto.templateContent | safe }}</p>
+            <a class="proyecto-item__link" href="{{ proyecto.url }}">Ver más fotos →</a>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="marquee">
+  <div class="marquee__track">
+    <div class="marquee__set">
+      <span>Viviendas</span><span class="dot">—</span><span>Locales comerciales</span><span class="dot">—</span><span>Naves industriales</span><span class="dot">—</span><span>Interiorismo</span><span class="dot">—</span>
+    </div>
+    <div class="marquee__set">
+      <span>Viviendas</span><span class="dot">—</span><span>Locales comerciales</span><span class="dot">—</span><span>Naves industriales</span><span class="dot">—</span><span>Interiorismo</span><span class="dot">—</span>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <div class="wrap">
+    <p class="section-label" data-reveal style="margin-bottom:36px">04 — Contacto</p>
+    <div class="contacto__grid">
+      <div>
+        <h2 data-reveal>Conversemos sobre tu proyecto</h2>
+        <p class="contacto__lede" data-reveal data-delay="0.1">Contanos en qué estás pensando y coordinamos una primera reunión, presencial o por videollamada.</p>
+        <div class="contacto__ctas" data-reveal data-delay="0.15">
+          <a class="boton boton--primario" href="https://wa.me/5493454117321" target="_blank" rel="noopener">Escribinos por WhatsApp →</a>
+          <a class="boton boton--secundario" href="mailto:estudio.arq.noir@gmail.com">Enviar un mail</a>
+        </div>
+      </div>
+      <dl class="contacto__datos" data-reveal data-delay="0.2">
+        <div><dt>Email</dt><dd><a href="mailto:estudio.arq.noir@gmail.com">estudio.arq.noir@gmail.com</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/estudio.arq.noir" target="_blank" rel="noopener">@estudio.arq.noir</a></dd></div>
+        <div><dt>WhatsApp</dt><dd>+54 9 345 411 7321</dd></div>
+        <div><dt>Zona de trabajo</dt><dd>Concordia y alrededores, Entre Ríos</dd></div>
+      </dl>
+    </div>
+
+    <footer class="site-footer">
+      <span class="site-footer__brand">Estudio de Arquitectura Noir</span>
+      <span class="site-footer__legal">Arq. Gonzalo Noir · Mat. 12.656 · Concordia, Entre Ríos</span>
+    </footer>
+  </div>
+</section>
