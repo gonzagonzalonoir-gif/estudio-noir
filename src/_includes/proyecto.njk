@@ -1,0 +1,35 @@
+---
+layout: base.njk
+---
+<header class="subpage-header">
+  <a href="/#top" style="display:flex;align-items:center;gap:10px">
+    <img src="/img/logo-noir-mark-navy.png" alt="Noir">
+  </a>
+  <a class="volver" href="/#proyectos">← Todos los proyectos</a>
+</header>
+
+<article class="wrap proyecto-page">
+  <p class="section-label">{{ ubicacion }}{% if ubicacion and anio %} — {% endif %}{{ anio }}</p>
+  <h1>{{ title }}</h1>
+
+  <dl class="proyecto-page__datos">
+    {% if tipo %}<div><dt>Tipo</dt><dd>{{ tipo }}</dd></div>{% endif %}
+    {% if metros %}<div><dt>Superficie</dt><dd>{{ metros }} m²</dd></div>{% endif %}
+  </dl>
+
+  {% if portada %}
+  <img class="proyecto-page__portada" src="{{ portada }}" alt="{{ title }}">
+  {% endif %}
+
+  <div class="proyecto-page__texto">
+    {{ content | safe }}
+  </div>
+
+  {% if galeria and galeria.length %}
+  <div class="proyecto-page__galeria">
+    {% for foto in galeria %}
+      <img src="{{ foto }}" alt="{{ title }} — foto {{ loop.index }}" loading="lazy">
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
