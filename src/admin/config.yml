@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: gonzagonzalonoir-gif/estudio-noir
+  branch: main
+
+media_folder: "src/img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "portada"
+    label: "Portada del sitio"
+    files:
+      - label: "Fotos de portada e inicio"
+        name: "home"
+        file: "src/_data/home.json"
+        fields:
+          - { label: "Foto principal (hero)", name: "heroImagen", widget: "image", required: false }
+          - { label: "Foto del estudio — horizontal", name: "estudioImagen1", widget: "image", required: false }
+          - { label: "Foto del estudio — vertical (detalle)", name: "estudioImagen2", widget: "image", required: false }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+
+  - name: "proyectos"
+    label: "Proyectos"
+    folder: "src/proyectos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Tipo de obra", name: "tipo", widget: "string", required: false, hint: "Ej: vivienda unifamiliar, reforma, local comercial, nave industrial" }
+      - { label: "Ubicación", name: "ubicacion", widget: "string", required: false }
+      - { label: "Año", name: "anio", widget: "string", required: false }
+      - { label: "Superficie (m²)", name: "metros", widget: "string", required: false }
+      - { label: "Foto de portada", name: "portada", widget: "image", required: false }
+      - label: "Galería de fotos"
+        name: "galeria"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "foto", widget: "image" }
+      - { label: "Orden (los números más bajos aparecen primero)", name: "orden", widget: "number", default: 10, required: false }
+      - { label: "Descripción", name: "body", widget: "markdown" }
