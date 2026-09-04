@@ -342,6 +342,9 @@ img { max-width: 100%; display: block; }
 .proyecto-feature__zoom, .proyecto-item__zoom {
   position: absolute; inset: 0; transition: transform 1.1s var(--ease);
 }
+.proyecto-feature__zoom img, .proyecto-item__zoom img, .proyectos-duo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
 .proyecto-feature:hover .proyecto-feature__zoom,
 .proyecto-item:hover .proyecto-item__zoom { transform: scale(1.05); }
 .proyecto-feature__meta, .proyecto-item__meta {
