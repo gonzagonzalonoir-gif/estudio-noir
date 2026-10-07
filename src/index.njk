@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Arquitecto en Concordia, Entre Ríos
-description: Estudio de Arquitectura Noir — proyecto, dirección de obra e interiorismo para viviendas, locales comerciales y naves industriales en Concordia y toda la zona de Entre Ríos.
+description: "Estudio de Arquitectura Noir: proyecto, dirección de obra e interiorismo para viviendas, locales comerciales y naves industriales en Concordia y toda la zona de Entre Ríos."
 ---
 <div class="progress-bar" data-progress></div>
 
@@ -11,7 +11,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
       <img class="logo-dark" src="/img/logo-noir-mark-navy.png" alt="Noir">
       <img class="logo-light" src="/img/logo-noir-mark-black.png" alt="">
     </span>
-    <span>Estudio de Arquitectura Noir</span>
+    <span class="site-header__nombre">Estudio de Arquitectura Noir</span>
   </a>
   <nav class="site-nav">
     <a href="#estudio">Estudio</a>
@@ -27,14 +27,14 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
   </div>
   <div class="hero__scrim"></div>
   <div class="hero__content">
-    <p class="hero__kicker">Concordia — Entre Ríos</p>
+    <p class="hero__kicker">Concordia · Entre Ríos</p>
     <h1>
       <span>Arquitecto en</span>
       <span>Concordia,</span>
       <span class="accent">Entre Ríos</span>
     </h1>
     <div class="hero__foot">
-      <p class="hero__lede">Estudio de Arquitectura Noir — proyecto, dirección de obra e interiorismo para viviendas, locales comerciales y naves industriales.</p>
+      <p class="hero__lede">Estudio de Arquitectura Noir: proyecto, dirección de obra e interiorismo para viviendas, locales comerciales y naves industriales.</p>
       <div class="hero__cue">
         <div class="hero__cue-line"></div>
         <span>Bajá</span>
@@ -47,12 +47,12 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
   <div class="wrap estudio__grid">
     <div data-reveal>
       <div class="estudio__rule"></div>
-      <p class="section-label">01 — El estudio</p>
+      <p class="section-label">01 · El estudio</p>
       <h2>Cada obra empieza con una conversación, no con un plano</h2>
     </div>
     <div>
       <p data-reveal>En Estudio de Arquitectura Noir trabajamos de cerca con cada cliente para traducir una necesidad concreta —una casa, una reforma, un local, una nave— en un espacio funcional, cuidado en el detalle y con identidad propia.</p>
-      <p data-reveal data-delay="0.1">A cargo del Arq. Gonzalo Noir (Mat. 12.656), acompañamos el proyecto de punta a punta: desde el primer boceto hasta la entrega de la obra terminada. Gonzalo cuenta con trayectoria profesional en proyecto y dirección de obra, y además dicta clases de Administración y Conducción de Obras — una mirada que se traslada directamente a cómo se gestionan los proyectos del estudio: con presupuestos claros, plazos reales y seguimiento constante de la obra.</p>
+      <p data-reveal data-delay="0.1">A cargo del Arq. Gonzalo Noir (Mat. 12.656), acompañamos el proyecto de punta a punta: desde el primer boceto hasta la entrega de la obra terminada. Gonzalo cuenta con trayectoria profesional en proyecto y dirección de obra, y además dicta clases de Administración y Conducción de Obras. Esa mirada se traslada directamente a cómo se gestionan los proyectos del estudio: con presupuestos claros, plazos reales y seguimiento constante de la obra.</p>
       <dl class="estudio__stats" data-reveal data-delay="0.15">
         <div><dt>Matrícula</dt><dd>12.656</dd></div>
         <div><dt>Docencia</dt><dd>Administración y Conducción de Obras</dd></div>
@@ -67,14 +67,14 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
     {% if home.estudioImagen1 %}
       <img src="{{ home.estudioImagen1 }}" alt="Obra de Estudio de Arquitectura Noir">
     {% else %}
-      <div class="placeholder-foto">Foto de obra — horizontal<br>(cargar desde /admin)</div>
+      <div class="placeholder-foto">Foto de obra, horizontal<br>(cargar desde /admin)</div>
     {% endif %}
   </div>
   <div class="estudio-fotos__b" data-reveal data-delay="0.12">
     {% if home.estudioImagen2 %}
       <img src="{{ home.estudioImagen2 }}" alt="Detalle de obra">
     {% else %}
-      <div class="placeholder-foto">Detalle constructivo — vertical<br>(cargar desde /admin)</div>
+      <div class="placeholder-foto">Detalle constructivo, vertical<br>(cargar desde /admin)</div>
     {% endif %}
   </div>
 </div>
@@ -83,7 +83,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
   <div class="wrap">
     <div class="servicios__head" data-reveal>
       <h2>Servicios</h2>
-      <p class="section-label">02 — Qué hacemos</p>
+      <p class="section-label">02 · Qué hacemos</p>
     </div>
 
     <div class="servicio" data-reveal>
@@ -113,7 +113,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
   <div class="wrap">
     <div class="proyectos__head" data-reveal>
       <h2>Proyectos</h2>
-      <p class="section-label">03 — Obra y proyecto</p>
+      <p class="section-label">03 · Obra y proyecto</p>
     </div>
 
     {% for proyecto in collections.proyectos %}
@@ -124,20 +124,20 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
               {% if proyecto.data.portada %}
                 <img src="{{ proyecto.data.portada }}" alt="{{ proyecto.data.title }}">
               {% else %}
-                <div class="placeholder-foto">{{ proyecto.data.title }} — foto principal<br>(cargar desde /admin)</div>
+                <div class="placeholder-foto">{{ proyecto.data.title }}, foto principal<br>(cargar desde /admin)</div>
               {% endif %}
             </div>
           </div>
           <div>
-            <p class="proyecto-feature__meta">{{ proyecto.data.anio }}{% if proyecto.data.anio and proyecto.data.ubicacion %} — {% endif %}{{ proyecto.data.ubicacion }}</p>
+            <p class="proyecto-feature__meta">{{ proyecto.data.anio }}{% if proyecto.data.anio and proyecto.data.ubicacion %} · {% endif %}{{ proyecto.data.ubicacion }}</p>
             <h3>{{ proyecto.data.title }}</h3>
             <p>{{ proyecto.templateContent | safe }}</p>
             <dl class="proyecto-feature__datos">
               {% if proyecto.data.estado %}<div class="ancho"><dt>Estado</dt><dd>{{ proyecto.data.estado }}</dd></div>{% endif %}
-              <div><dt>Tipo</dt><dd>{{ proyecto.data.tipo or "—" }}</dd></div>
-              <div><dt>Superficie</dt><dd>{{ proyecto.data.metros or "—" }}{% if proyecto.data.metros %} m²{% endif %}</dd></div>
+              {% if proyecto.data.tipo %}<div><dt>Tipo</dt><dd>{{ proyecto.data.tipo }}</dd></div>{% endif %}
+              {% if proyecto.data.metros %}<div><dt>Superficie</dt><dd>{{ proyecto.data.metros }} m²</dd></div>{% endif %}
             </dl>
-            <p style="margin-top:24px"><a class="proyecto-feature__link" href="{{ proyecto.url }}">Ver más fotos →</a></p>
+            <p style="margin-top:14px"><a class="proyecto-feature__link" href="{{ proyecto.url }}">Ver el proyecto →</a></p>
           </div>
         </article>
       {% endif %}
@@ -146,7 +146,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
     <div class="proyectos-duo" data-reveal>
       {% for foto in collections.proyectos[0].data.galeria %}
         {% if loop.index <= 2 %}
-          <div><img src="{{ foto }}" alt="{{ collections.proyectos[0].data.title }} — detalle"></div>
+          <div><img src="{{ foto }}" alt="{{ collections.proyectos[0].data.title }}, detalle"></div>
         {% endif %}
       {% endfor %}
     </div>
@@ -159,15 +159,15 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
               {% if proyecto.data.portada %}
                 <img src="{{ proyecto.data.portada }}" alt="{{ proyecto.data.title }}">
               {% else %}
-                <div class="placeholder-foto">{{ proyecto.data.title }} — foto principal<br>(cargar desde /admin)</div>
+                <div class="placeholder-foto">{{ proyecto.data.title }}, foto principal<br>(cargar desde /admin)</div>
               {% endif %}
             </div>
           </div>
           <div class="proyecto-item__text">
-            <p class="proyecto-item__meta">{{ proyecto.data.anio or "[Año]" }} — {{ proyecto.data.ubicacion or "[Ubicación]" }}{% if proyecto.data.estado %} · {{ proyecto.data.estado }}{% endif %}</p>
+            <p class="proyecto-item__meta">{{ proyecto.data.anio or "[Año]" }} · {{ proyecto.data.ubicacion or "[Ubicación]" }}{% if proyecto.data.estado %} · {{ proyecto.data.estado }}{% endif %}</p>
             <h3>{{ proyecto.data.title }}</h3>
             <p>{{ proyecto.templateContent | safe }}</p>
-            <a class="proyecto-item__link" href="{{ proyecto.url }}">Ver más fotos →</a>
+            <a class="proyecto-item__link" href="{{ proyecto.url }}">Ver el proyecto →</a>
           </div>
         </article>
       {% endif %}
@@ -177,18 +177,20 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
 
 <section class="marquee">
   <div class="marquee__track">
+    {# Las líneas entre palabras se dibujan con CSS (.dot); no son texto. #}
     <div class="marquee__set">
-      <span>Viviendas</span><span class="dot">—</span><span>Locales comerciales</span><span class="dot">—</span><span>Naves industriales</span><span class="dot">—</span><span>Interiorismo</span><span class="dot">—</span>
+      <span>Viviendas</span><span class="dot" aria-hidden="true"></span><span>Locales comerciales</span><span class="dot" aria-hidden="true"></span><span>Naves industriales</span><span class="dot" aria-hidden="true"></span><span>Interiorismo</span><span class="dot" aria-hidden="true"></span>
     </div>
-    <div class="marquee__set">
-      <span>Viviendas</span><span class="dot">—</span><span>Locales comerciales</span><span class="dot">—</span><span>Naves industriales</span><span class="dot">—</span><span>Interiorismo</span><span class="dot">—</span>
+    {# Copia para que la cinta gire sin corte: oculta a lectores de pantalla. #}
+    <div class="marquee__set" aria-hidden="true">
+      <span>Viviendas</span><span class="dot"></span><span>Locales comerciales</span><span class="dot"></span><span>Naves industriales</span><span class="dot"></span><span>Interiorismo</span><span class="dot"></span>
     </div>
   </div>
 </section>
 
 <section id="contacto" class="contacto">
   <div class="wrap">
-    <p class="section-label" data-reveal style="margin-bottom:36px">04 — Contacto</p>
+    <p class="section-label" data-reveal style="margin-bottom:36px">04 · Contacto</p>
     <div class="contacto__grid">
       <div>
         <h2 data-reveal>Conversemos sobre tu proyecto</h2>

@@ -2,14 +2,14 @@
 layout: base.njk
 ---
 <header class="subpage-header">
-  <a href="/#top" style="display:flex;align-items:center;gap:10px">
-    <img src="/img/logo-noir-mark-navy.png" alt="Noir">
+  <a class="subpage-header__inicio" href="/#top">
+    <img src="/img/logo-noir-mark-navy.png" alt="Estudio de Arquitectura Noir, ir al inicio">
   </a>
   <a class="volver" href="/#proyectos">← Todos los proyectos</a>
 </header>
 
 <article class="wrap proyecto-page">
-  <p class="section-label">{{ ubicacion }}{% if ubicacion and anio %} — {% endif %}{{ anio }}</p>
+  <p class="section-label">{{ ubicacion }}{% if ubicacion and anio %} · {% endif %}{{ anio }}</p>
   <h1>{{ title }}</h1>
 
   <dl class="proyecto-page__datos">
@@ -29,7 +29,7 @@ layout: base.njk
   {% if galeria and galeria.length %}
   <div class="proyecto-page__galeria">
     {% for foto in galeria %}
-      <img src="{{ foto }}" alt="{{ title }} — foto {{ loop.index }}" loading="lazy">
+      <img src="{{ foto }}" alt="{{ title }}, foto {{ loop.index }}" loading="lazy">
     {% endfor %}
   </div>
   {% endif %}
