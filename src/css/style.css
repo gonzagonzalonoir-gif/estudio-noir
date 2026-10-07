@@ -59,6 +59,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px; /* el nombre y el menú nunca quedan pegados */
   padding: 24px 48px;
   transition: padding .5s var(--ease), background-color .5s ease, border-color .5s ease;
   border-bottom: 1px solid transparent;
@@ -68,7 +69,9 @@ img { max-width: 100%; display: block; }
   padding: 14px 48px;
   border-bottom-color: var(--pearl);
 }
-.site-header__brand { display: flex; align-items: center; gap: 12px; }
+/* Zonas táctiles: cada link mide al menos 44px de alto. El margen negativo
+   compensa ese alto extra para que el encabezado conserve su tamaño. */
+.site-header__brand { display: flex; align-items: center; gap: 12px; min-width: 44px; min-height: 44px; margin: -5px 0; }
 .site-header__mark {
   position: relative;
   display: block;
@@ -98,6 +101,8 @@ img { max-width: 100%; display: block; }
 
 .site-nav { display: flex; align-items: center; gap: 34px; }
 .site-nav a {
+  display: inline-flex; align-items: center;
+  min-height: 44px; margin: -15px 0;
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
@@ -112,6 +117,16 @@ img { max-width: 100%; display: block; }
 .progress-bar {
   position: fixed; top: 0; left: 0; height: 2px; width: 0%;
   background: var(--sand); z-index: 60;
+}
+
+/* Tablet angosta (721 a 820px): el nombre completo y el menú no entran en una línea.
+   Queda el isologo, que ya dice NOIR; el nombre sigue disponible para
+   lectores de pantalla. */
+@media (min-width: 721px) and (max-width: 820px) {
+  .site-header__nombre {
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
 }
 
 @media (max-width: 720px) {
@@ -396,10 +411,14 @@ img { max-width: 100%; display: block; }
 }
 .proyecto-feature__datos dd { margin: 0; font-size: 14px; color: var(--navy); }
 .proyecto-feature__datos .ancho { grid-column: 1 / -1; } /* "Estado" ocupa la fila entera */
+/* 44px de alto para tocarlo con el dedo; el subrayado pasa a ser del texto
+   para que no se separe al agrandar la zona. */
 .proyecto-feature__link, .proyecto-item__link {
-  display: inline-block; font-size: 13px; font-weight: 600;
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 13px; font-weight: 600;
   letter-spacing: var(--tracking-wide); text-transform: uppercase;
-  color: var(--texto-acento); border-bottom: 1px solid var(--texto-acento);
+  color: var(--texto-acento);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 7px;
 }
 
 .proyectos-duo {
@@ -445,7 +464,11 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase; color: var(--navy);
   white-space: nowrap;
 }
-.marquee__set span.dot { color: var(--sand); }
+/* Línea separadora dibujada (antes era el carácter de raya). */
+.marquee__set span.dot {
+  display: inline-block; width: .9em; height: max(1px, .035em);
+  background: var(--sand);
+}
 @keyframes noir-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ---------- Contacto ---------- */
@@ -507,14 +530,20 @@ img { max-width: 100%; display: block; }
 /* ---------- Página de proyecto individual ---------- */
 .subpage-header {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 48px;
+  padding: 15px 48px; /* 15 + 44 de los links + 15 = mismo alto que antes */
   background: var(--navy);
 }
 .subpage-header img { height: 30px; filter: brightness(0) invert(.9); } /* isologo aclarado sobre navy */
-.subpage-header a.volver { color: var(--mist); font-size: 13px; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+.subpage-header__inicio { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; }
+.subpage-header a.volver {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--mist); font-size: 13px; letter-spacing: var(--tracking-wide); text-transform: uppercase;
+}
 .subpage-header a.volver:hover { color: var(--sand); }
 
-.proyecto-page { padding: 64px 0 100px; max-width: 820px; margin: 0 auto; }
+/* 820px de contenido + 48px de margen a cada lado, para que el texto nunca
+   toque el borde de la pantalla. */
+.proyecto-page { padding: 64px 48px 100px; max-width: 916px; margin: 0 auto; }
 .proyecto-page h1 {
   font-family: var(--font-display);
   font-size: clamp(30px,4.4vw,52px);
@@ -560,4 +589,9 @@ img { max-width: 100%; display: block; }
   /* Reserva el lugar del botón para que no tape el final de cada página. */
   .contacto { padding-bottom: calc(56px + var(--wa-fijo-alto) + env(safe-area-inset-bottom)); }
   .proyecto-page { padding-bottom: calc(100px + var(--wa-fijo-alto) + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 720px) {
+  .subpage-header { padding: 10px 24px; }
+  .proyecto-page { padding-left: 24px; padding-right: 24px; }
 }

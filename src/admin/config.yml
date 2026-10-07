@@ -15,8 +15,8 @@ collections:
         file: "src/_data/home.json"
         fields:
           - { label: "Foto principal (hero)", name: "heroImagen", widget: "image", required: false }
-          - { label: "Foto del estudio — horizontal", name: "estudioImagen1", widget: "image", required: false }
-          - { label: "Foto del estudio — vertical (detalle)", name: "estudioImagen2", widget: "image", required: false }
+          - { label: "Foto del estudio, horizontal", name: "estudioImagen1", widget: "image", required: false }
+          - { label: "Foto del estudio, vertical (detalle)", name: "estudioImagen2", widget: "image", required: false }
           - { label: "WhatsApp", name: "whatsapp", widget: "string" }
 
   - name: "proyectos"
