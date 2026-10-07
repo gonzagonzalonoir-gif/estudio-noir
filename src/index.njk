@@ -23,7 +23,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
 
 <section id="top" class="hero">
   <div class="hero__media" data-hero-media>
-    {% if home.heroImagen %}<img src="{{ home.heroImagen }}" alt="Obra de Estudio de Arquitectura Noir">{% endif %}
+    {% if home.heroImagen %}<img src="{{ home.heroImagen }}" alt="Proyecto de Estudio de Arquitectura Noir">{% endif %}
   </div>
   <div class="hero__scrim"></div>
   <div class="hero__content">
@@ -113,7 +113,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
   <div class="wrap">
     <div class="proyectos__head" data-reveal>
       <h2>Proyectos</h2>
-      <p class="section-label">03 — Obra construida</p>
+      <p class="section-label">03 — Obra y proyecto</p>
     </div>
 
     {% for proyecto in collections.proyectos %}
@@ -133,6 +133,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
             <h3>{{ proyecto.data.title }}</h3>
             <p>{{ proyecto.templateContent | safe }}</p>
             <dl class="proyecto-feature__datos">
+              {% if proyecto.data.estado %}<div class="ancho"><dt>Estado</dt><dd>{{ proyecto.data.estado }}</dd></div>{% endif %}
               <div><dt>Tipo</dt><dd>{{ proyecto.data.tipo or "—" }}</dd></div>
               <div><dt>Superficie</dt><dd>{{ proyecto.data.metros or "—" }}{% if proyecto.data.metros %} m²{% endif %}</dd></div>
             </dl>
@@ -163,7 +164,7 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
             </div>
           </div>
           <div class="proyecto-item__text">
-            <p class="proyecto-item__meta">{{ proyecto.data.anio or "[Año]" }} — {{ proyecto.data.ubicacion or "[Ubicación]" }}</p>
+            <p class="proyecto-item__meta">{{ proyecto.data.anio or "[Año]" }} — {{ proyecto.data.ubicacion or "[Ubicación]" }}{% if proyecto.data.estado %} · {{ proyecto.data.estado }}{% endif %}</p>
             <h3>{{ proyecto.data.title }}</h3>
             <p>{{ proyecto.templateContent | safe }}</p>
             <a class="proyecto-item__link" href="{{ proyecto.url }}">Ver más fotos →</a>
@@ -193,14 +194,14 @@ description: Estudio de Arquitectura Noir — proyecto, dirección de obra e int
         <h2 data-reveal>Conversemos sobre tu proyecto</h2>
         <p class="contacto__lede" data-reveal data-delay="0.1">Contanos en qué estás pensando y coordinamos una primera reunión, presencial o por videollamada.</p>
         <div class="contacto__ctas" data-reveal data-delay="0.15">
-          <a class="boton boton--primario" href="https://wa.me/5493454117321" target="_blank" rel="noopener">Escribinos por WhatsApp →</a>
+          {% if home.whatsapp %}<a class="boton boton--primario" href="https://wa.me/{{ home.whatsapp | soloDigitos }}" target="_blank" rel="noopener">Escribinos por WhatsApp →</a>{% endif %}
           <a class="boton boton--secundario" href="mailto:estudio.arq.noir@gmail.com">Enviar un mail</a>
         </div>
       </div>
       <dl class="contacto__datos" data-reveal data-delay="0.2">
         <div><dt>Email</dt><dd><a href="mailto:estudio.arq.noir@gmail.com">estudio.arq.noir@gmail.com</a></dd></div>
         <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/estudio.arq.noir" target="_blank" rel="noopener">@estudio.arq.noir</a></dd></div>
-        <div><dt>WhatsApp</dt><dd>+54 9 345 411 7321</dd></div>
+        {% if home.whatsapp %}<div><dt>WhatsApp</dt><dd><a href="https://wa.me/{{ home.whatsapp | soloDigitos }}" target="_blank" rel="noopener">{{ home.whatsapp }}</a></dd></div>{% endif %}
         <div><dt>Zona de trabajo</dt><dd>Concordia y alrededores, Entre Ríos</dd></div>
       </dl>
     </div>
