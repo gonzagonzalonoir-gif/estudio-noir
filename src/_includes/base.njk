@@ -10,10 +10,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Quicksand:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <script>
+    // Los bloques con data-reveal solo arrancan ocultos si hay JavaScript.
+    // Si site.js no llega a cargar, a los 3 segundos se muestra todo igual.
+    document.documentElement.classList.add("js");
+    setTimeout(function () {
+      if (!window.noirListo) document.documentElement.classList.remove("js");
+    }, 3000);
+  </script>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   {{ content | safe }}
+  {% if home.whatsapp %}
+  <a class="wa-fijo" data-wa-fijo href="https://wa.me/{{ home.whatsapp | soloDigitos }}" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+  {% endif %}
   <script src="/js/site.js" defer></script>
 </body>
 </html>

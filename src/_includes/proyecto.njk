@@ -13,6 +13,7 @@ layout: base.njk
   <h1>{{ title }}</h1>
 
   <dl class="proyecto-page__datos">
+    {% if estado %}<div><dt>Estado</dt><dd>{{ estado }}</dd></div>{% endif %}
     {% if tipo %}<div><dt>Tipo</dt><dd>{{ tipo }}</dd></div>{% endif %}
     {% if metros %}<div><dt>Superficie</dt><dd>{{ metros }} m²</dd></div>{% endif %}
   </dl>

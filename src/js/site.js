@@ -1,4 +1,16 @@
 (function () {
+  // Avisa a la página que el script cargó (ver el aviso en base.njk).
+  window.noirListo = true;
+
+  // Botón fijo de WhatsApp (celular): se esconde cuando ya se ven los botones de Contacto.
+  var waFijo = document.querySelector("[data-wa-fijo]");
+  var ctas = document.querySelector(".contacto__ctas");
+  if (waFijo && ctas && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      waFijo.classList.toggle("is-oculto", entries[0].isIntersecting);
+    }, { threshold: 0.6 }).observe(ctas);
+  }
+
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var header = document.querySelector("[data-header]");
   var bar = document.querySelector("[data-progress]");
